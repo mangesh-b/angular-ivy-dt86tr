@@ -27,7 +27,7 @@ export class Template1Component {
       {
         type: 'header',
         label: 'Employee Registration Form',
-        classes: "employee-form-header"
+        classes: 'employee-form-header',
       },
       {
         type: 'text',
@@ -35,13 +35,12 @@ export class Template1Component {
         label: 'First Name',
         default: '',
         validation: {
-          required: true
+          required: true,
         },
-        appearance: 'fill',
-        hint: 'hey',
+        appearance: 'fill', // outline - default
+        hint: 'Enter only first name ',
         suffix: 'matSuffix', // matPrefix
-        suffixIcon: 'sentiment_very_satisfied',
-        alignPosition: 'end',
+        alignPosition: 'end', // start
       },
       {
         type: 'radio',
@@ -49,22 +48,25 @@ export class Template1Component {
         label: `Gender`,
         default: '',
         validation: {
-          required: true
+          required: true,
         },
-        options: [{
-          value: 12,
-          label: 'Male'
-        }, {
-          value: 13,
-          label: 'Female'
-        }]
+        options: [
+          {
+            value: 12,
+            label: 'Male',
+          },
+          {
+            value: 13,
+            label: 'Female',
+          },
+        ],
       },
       {
         type: 'textarea',
         name: 'address',
         label: `Address`,
         default: 'Mumbai, India',
-        required: false
+        required: false,
       },
       {
         type: 'select',
@@ -75,16 +77,16 @@ export class Template1Component {
         options: [
           { id: 1, name: 'TATA Consultancy Services' },
           { id: 2, name: 'HDFC Bank' },
-          { id: 3, name: 'Infosys' }
-        ]
+          { id: 3, name: 'Infosys' },
+        ],
       },
       {
         type: 'checkbox',
         name: 'isActive',
         label: `Employee Status`,
         default: true,
-        required: true
-      }
+        required: true,
+      },
     ],
     buttons: {
       display: true,
@@ -95,15 +97,14 @@ export class Template1Component {
       secondaryLabel: 'Reset',
       resetForm: true,
       tertiaryButton: true,
-      tertiaryLabel: 'Random'
-    }
-  }
+      tertiaryLabel: 'Random',
+    },
+  };
 
   submitBtnEvent(event: any) {
     console.log(event);
   }
   secondaryBtnEvent() {
-    console.log("Secondary Button have been clicked !!");
+    console.log('Secondary Button have been clicked !!');
   }
-
 }
