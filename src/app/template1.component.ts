@@ -96,8 +96,6 @@ export class Template1Component {
       secondaryButton: true,
       secondaryLabel: 'Reset',
       resetForm: true,
-      tertiaryButton: true,
-      tertiaryLabel: 'Random',
     },
   };
 
