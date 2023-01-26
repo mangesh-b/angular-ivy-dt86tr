@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'dy-template1',
   template: `
+    <h4>Basic Dynamic form</h4>
     <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="loggedOut">
       <div class="demo-material-dynamic-form">
         <material-dynamic-form [fields]="demoAllFields.fields" 
@@ -31,16 +32,31 @@ export class Template1Component {
       },
       {
         type: 'text',
-        name: 'firstName',
-        label: 'First Name',
+        name: 'fullName',
+        label: 'Full Name',
         default: '',
         validation: {
           required: true,
         },
-        appearance: 'fill', // outline - default
-        hint: 'Enter only first name ',
-        suffix: 'matSuffix', // matPrefix
-        alignPosition: 'end', // start
+      },
+      {
+        type: 'textarea',
+        name: 'address',
+        label: `Address`,
+        default: 'Mumbai, India',
+        required: false,
+      },
+      {
+        type: 'select',
+        name: 'customer',
+        label: `Customer`,
+        default: '',
+        required: false,
+        options: [
+          { id: 1, name: 'TATA Consultancy Services' },
+          { id: 2, name: 'HDFC Bank' },
+          { id: 3, name: 'Infosys' },
+        ],
       },
       {
         type: 'radio',
@@ -59,25 +75,6 @@ export class Template1Component {
             value: 13,
             label: 'Female',
           },
-        ],
-      },
-      {
-        type: 'textarea',
-        name: 'address',
-        label: `Address`,
-        default: 'Mumbai, India',
-        required: false,
-      },
-      {
-        type: 'select',
-        name: 'customer1',
-        label: `Customer`,
-        default: '',
-        required: false,
-        options: [
-          { id: 1, name: 'TATA Consultancy Services' },
-          { id: 2, name: 'HDFC Bank' },
-          { id: 3, name: 'Infosys' },
         ],
       },
       {

@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { Template1Component } from './template1.component';
+import { Template2Component } from './template2.component';
 import { IntroductionComponent } from './introduction.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'introduction', pathMatch: 'full' },
   { path: 'introduction', component: IntroductionComponent },
   { path: 'template1', component: Template1Component },
+  { path: 'template2', component: Template2Component },
 ];
 
 @NgModule({
@@ -23,7 +25,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
   ],
-  declarations: [AppComponent, Template1Component],
+  declarations: [AppComponent, Template1Component, Template2Component],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
