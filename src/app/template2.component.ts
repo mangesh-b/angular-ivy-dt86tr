@@ -6,11 +6,12 @@ const moment = moment_;
 @Component({
   selector: 'dy-template2',
   template: `
-    <h4>Custom Dynamic form</h4>
+    <h4>Custom Dynamic form with all field events</h4>
     <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="loggedOut">
       <div class="demo-material-dynamic-form">
         <material-dynamic-form [fields]="demoAllFields.fields" 
           [buttons]="demoAllFields.buttons" [submitted]="submitted"
+          [validationError]="validationError"
           (submitBtnEvent)="submitBtnEvent($event)"
           (secondaryBtnEvent)="secondaryBtnEvent()" (selectChangeEvent)="selectChange($event)"
           (multiSelectChangeEvent)="multiSelectChange($event)" 
@@ -28,6 +29,7 @@ const moment = moment_;
   styles: [],
 })
 export class Template2Component {
+  validationError: any = {};
   submitted: boolean = false;
   fieldsMandatoryCheck: boolean = false; // default true
 
@@ -285,8 +287,8 @@ export class Template2Component {
       primaryButton: true,
       primaryLabel: 'Submit',
       secondaryButton: true,
-      secondaryLabel: 'Reset',
-      resetForm: true,
+      secondaryLabel: 'Cancel',
+      resetForm: false,
       tertiaryButton: true,
       tertiaryLabel: 'Random',
     },
