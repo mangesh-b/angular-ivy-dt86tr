@@ -7,7 +7,7 @@ const moment = moment_;
   selector: 'dy-template2',
   template: `
     <h4>Custom Dynamic form with all field events</h4>
-    <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="loggedOut">
+    <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="invalidConfig">
       <div class="demo-material-dynamic-form">
         <material-dynamic-form [fields]="demoAllFields.fields" 
           [buttons]="demoAllFields.buttons" [submitted]="submitted"
@@ -24,7 +24,7 @@ const moment = moment_;
         </material-dynamic-form>
       </div>
     </ng-template>
-    <ng-template #loggedOut>Please check form fields configuration</ng-template>
+    <ng-template #invalidConfig>Please check form fields configuration</ng-template>
   `,
   styles: [],
 })

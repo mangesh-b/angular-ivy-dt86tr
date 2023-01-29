@@ -1,16 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import * as moment_ from 'moment';
+const moment = moment_;
 
 @Component({
-  selector: 'dy-template1',
+  selector: 'dy-template3',
   template: `
-    <h4>Basic Dynamic form</h4>
+    <h4>Support Bootstrap v4, v5 Grid system and Custom classes for fieldset</h4>
+    <h4>Default width is 100% for each field</h4>
     <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="invalidConfig">
       <div class="demo-material-dynamic-form">
         <material-dynamic-form [fields]="demoAllFields.fields" 
-            [buttons]="demoAllFields.buttons" [submitted]="submitted"
-            [validationError]="validationError"
-            (submitBtnEvent)="submitBtnEvent($event)"
-            (secondaryBtnEvent)="secondaryBtnEvent()">
+          [buttons]="demoAllFields.buttons" [submitted]="submitted"
+          [validationError]="validationError"
+          (submitBtnEvent)="submitBtnEvent($event)">
         </material-dynamic-form>
       </div>
     </ng-template>
@@ -18,10 +20,9 @@ import { Component, Input } from '@angular/core';
   `,
   styles: [],
 })
-export class Template1Component {
+export class Template3Component {
   validationError: any = {};
   submitted: boolean = false;
-  // fieldsMandatoryCheck: boolean = false; // To skip form validation
 
   demoAllFields: any = {
     fields: [
@@ -38,6 +39,7 @@ export class Template1Component {
         validation: {
           required: true,
         },
+        classes: 'col-6'
       },
       {
         type: 'textarea',
@@ -45,6 +47,7 @@ export class Template1Component {
         label: `Address`,
         default: 'Mumbai, India',
         required: false,
+        classes: 'col-6'
       },
       {
         type: 'select',
@@ -56,7 +59,7 @@ export class Template1Component {
           { id: 1, name: 'TATA Consultancy Services' },
           { id: 2, name: 'HDFC Bank' },
           { id: 3, name: 'Infosys' },
-        ],
+        ]
       },
       {
         type: 'radio',
@@ -76,6 +79,7 @@ export class Template1Component {
             label: 'Female',
           },
         ],
+        classes: 'col-6'
       },
       {
         type: 'checkbox',
@@ -83,6 +87,7 @@ export class Template1Component {
         label: `Employee Status`,
         default: true,
         required: true,
+        classes: 'col-6'
       },
     ],
     buttons: {
@@ -99,7 +104,5 @@ export class Template1Component {
   submitBtnEvent(event: any) {
     console.log(event);
   }
-  secondaryBtnEvent() {
-    console.log('Secondary Button have been clicked !!');
-  }
+  
 }
