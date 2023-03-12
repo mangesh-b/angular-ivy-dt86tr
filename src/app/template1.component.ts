@@ -29,6 +29,7 @@ export class Template1Component {
         type: 'header',
         label: 'Employee Registration Form',
         classes: 'employee-form-header',
+        name: 'registrationHeader',
       },
       {
         type: 'text',

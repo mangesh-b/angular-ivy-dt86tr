@@ -8,7 +8,7 @@ const moment = moment_;
     <h4>Support Bootstrap v4, v5 Grid system and Custom classes for fieldset</h4>
     <h4>Default width is 100% for each field</h4>
     <ng-template [ngIf]="demoAllFields?.fields && demoAllFields?.fields.length" [ngIfElse]="invalidConfig">
-      <div class="demo-material-dynamic-form">
+      <div class="demo-material-dynamic-form"> <!-- class="mx-3"-- If row is creating UI distortion -->
         <material-dynamic-form [fields]="demoAllFields.fields" 
           [buttons]="demoAllFields.buttons" [submitted]="submitted"
           [validationError]="validationError"
@@ -29,7 +29,8 @@ export class Template3Component {
       {
         type: 'header',
         label: 'Employee Registration Form',
-        classes: 'employee-form-header',
+        classes: 'employee-form-header col-12',
+        name: "employeeRegistration"
       },
       {
         type: 'text',
@@ -39,7 +40,7 @@ export class Template3Component {
         validation: {
           required: true,
         },
-        classes: 'col-6'
+        classes: 'col-12 col-md-6 col-xs-12',
       },
       {
         type: 'textarea',
@@ -47,7 +48,7 @@ export class Template3Component {
         label: `Address`,
         default: 'Mumbai, India',
         required: false,
-        classes: 'col-6'
+        classes: 'col-12 col-md-6 col-xs-12',
       },
       {
         type: 'select',
@@ -59,7 +60,8 @@ export class Template3Component {
           { id: 1, name: 'TATA Consultancy Services' },
           { id: 2, name: 'HDFC Bank' },
           { id: 3, name: 'Infosys' },
-        ]
+        ],
+        classes: 'col-12 col-md-6 col-xs-12',
       },
       {
         type: 'radio',
@@ -79,7 +81,7 @@ export class Template3Component {
             label: 'Female',
           },
         ],
-        classes: 'col-6'
+        classes: 'col-12 col-md-6 col-xs-12',
       },
       {
         type: 'checkbox',
@@ -87,7 +89,7 @@ export class Template3Component {
         label: `Employee Status`,
         default: true,
         required: true,
-        classes: 'col-6'
+        classes: 'col-12 col-md-6 col-xs-12',
       },
     ],
     buttons: {
@@ -104,5 +106,4 @@ export class Template3Component {
   submitBtnEvent(event: any) {
     console.log(event);
   }
-  
 }
